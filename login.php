@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<?php include "_header.php" ?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/_header.php'); ?>
 
 <div class="container">
     <h1 class="text-center">Вхід</h1>

@@ -11,15 +11,10 @@
 </head>
 <body>
 
-<?php include "_header.php" ?>
-
 <?php
-try {
-    $user="root";
-    $pass="";
-    $dbh = new PDO('mysql:host=localhost;dbname=pv016', $user, $pass);
-    ?>
-
+include($_SERVER['DOCUMENT_ROOT'].'/_header.php');
+include($_SERVER['DOCUMENT_ROOT'].'/options/connection_database.php');
+?>
 
 
 <div class="container">
@@ -60,13 +55,7 @@ try {
     </section>
 </div>
 
-    <?php
-    $dbh = null;
-} catch (PDOException $e) {
-    print "Error!: " . $e->getMessage() . "<br/>";
-    die();
-}
-?>
+
 
 <script src="js/bootstrap.bundle.min.js"></script>
 </body>
