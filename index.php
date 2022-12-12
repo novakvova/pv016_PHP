@@ -23,7 +23,11 @@ include($_SERVER['DOCUMENT_ROOT'].'/options/connection_database.php');
         <div class="container py-5">
             <div class="row">
                 <?php
-                foreach($dbh->query('SELECT * FROM tbl_products') as $row) {
+                $sql='SELECT p.id, p.name, p.price, pi.name as image 
+                        from tbl_products p, tbl_product_images pi 
+                        where p.id=pi.product_id and pi.priority=1;';
+                foreach($dbh->query($sql) as $row) {
+                    $id=$row['id'];
                     $image = $row["image"];
                     $name = $row['name'];
                     $price = $row['price'];
@@ -40,7 +44,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/options/connection_database.php');
                             </div>
 
                             <div class="mb-2 text-end">
-                                <button type="button" class="btn btn-success">Купить</button>
+                                <a href="product.php?id='.$id.'" class="btn btn-success">Купить</a>
                             </div>
                         </div>
                     </div>
